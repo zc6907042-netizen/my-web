@@ -149,4 +149,260 @@ footer{text-align:center;font-size:13px;padding-bottom:20px}
       <p class="sub" style="margin:8px 0 0">建議提早到機場領機票、托運行李、過海關、登機。</p>
     </div>
     <div class="card">
-      <h3><span class="chip" style="background:#A8D3E6">回程</span>中華航空 CI1
+      <h3><span class="chip" style="background:#A8D3E6">回程</span>中華航空 CI131 <span id="fd2"></span></h3>
+      <div class="rt">
+        <div><strong>14:40</strong>新千歲 CTS</div>
+        <svg viewBox="0 0 90 30" aria-hidden="true"><line x1="2" y1="15" x2="88" y2="15" stroke="#3E3A39" stroke-width="3" stroke-dasharray="3 7" stroke-linecap="round"/><g class="f1"><ellipse cx="45" cy="13" rx="14" ry="6" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/><path d="M42 13L36 3H42L50 13Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></g></svg>
+        <div><strong>18:15</strong>桃園 TPE</div>
+      </div>
+      <p class="sub" style="margin:8px 0 0">12:00 領機票、過海關、托運行李；先找退稅機器。</p>
+    </div>
+  </div>
+</section>
+
+<section id="days">
+  <h2>每日行程</h2>
+  <div class="tabs" id="tabs" role="tablist" aria-label="選擇日期"></div>
+  <div class="card">
+    <h3 class="dayh" id="dayh"></h3>
+    <ol class="tl" id="tl"></ol>
+  </div>
+</section>
+
+<section id="food">
+  <h2>美食與地點</h2>
+  <div class="fc" id="fc"></div>
+  <ul class="pl" id="pl"></ul>
+  <p class="sub" style="margin-top:10px">點「地圖」會在 Google 地圖開啟。內容都整理自你的行程。</p>
+</section>
+
+<section id="todo">
+  <h2>待辦清單</h2>
+  <div class="card"><p class="sub">旅途中別忘了的事，點一下打勾。</p><ul class="ck" id="l-todo"></ul></div>
+</section>
+
+<section id="hotel">
+  <h2>住宿資訊</h2>
+  <div class="card">
+    <h3 style="margin:0;font-size:19px;font-weight:400">SAPPORO HOTEL by GRANBELL</h3>
+    <p class="sub" style="margin:4px 0 8px">札幌・住 5 晚（D1–D5）</p>
+    <p style="margin:0 0 4px"><span class="tag t-w">步行</span>札幌站約 8 分鐘（D1 抵達後可先寄放行李）</p>
+    <p style="margin:0 0 4px"><span class="tag t-j">早餐</span>飯店內用</p>
+    <p style="margin:0 0 4px"><span class="tag t-b">補填</span>地址、入住／退房時間、訂房編號，請自行補上</p>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=SAPPORO+HOTEL+by+GRANBELL" target="_blank" rel="noopener">開啟地圖</a>
+  </div>
+</section>
+
+<section id="prep">
+  <h2>出發前清單</h2>
+  <div class="card"><p class="sub">先把 Visit Japan Web 填好，過海關比較方便。</p><ul class="ck" id="l-prep"></ul><a class="btn" href="https://www.vjw.digital.go.jp/main/#/vjwplo001" target="_blank" rel="noopener">開啟 Visit Japan Web</a></div>
+</section>
+
+<section id="pack">
+  <h2>行李清單</h2>
+  <div class="card"><ul class="ck" id="l-pack"></ul></div>
+</section>
+
+</main>
+<footer>
+  <svg viewBox="0 0 220 56" width="220" aria-hidden="true"><g class="train"><rect x="6" y="10" width="64" height="30" rx="10" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/><rect x="78" y="10" width="64" height="30" rx="10" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/><rect x="150" y="10" width="64" height="30" rx="14" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/><g fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"><rect x="14" y="17" width="12" height="9" rx="3"/><rect x="34" y="17" width="12" height="9" rx="3"/><rect x="86" y="17" width="12" height="9" rx="3"/><rect x="106" y="17" width="12" height="9" rx="3"/><rect x="170" y="17" width="12" height="9" rx="3"/><rect x="192" y="17" width="12" height="9" rx="3"/></g></g><line x1="0" y1="50" x2="220" y2="50" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/></svg>
+  <div>旅途愉快，一路平安 ❄️</div>
+</footer>
+
+<script>
+// ★ 出發日期：請改成你的實際日期（格式 YYYY-MM-DD，當天 03:00 出發）
+var DEPART = "2027-02-19";
+
+var W = "w", J = "j", B = "b", F = "f", C = "c", L = "l";
+var DAYS = [
+ {t:"出發・抵達札幌", it:[
+  ["03:00","阿嬤家出發","開車前往桃園機場，約 5:30 抵達",C,"車程 2.5 小時"],
+  ["05:30","桃園國際機場","領機票、托運行李、過海關、登機",C,"抵達機場"],
+  ["08:35","搭乘 CI130 飛札幌","13:20 抵達新千歲機場",F,"飛機"],
+  ["13:20","新千歲機場","14:50 前辦完入境，準備搭 JR",F,"抵達"],
+  ["15:00","搭 JR 前往札幌站","15:50 抵達 JR 札幌站",J,"JR 約 50 分"],
+  ["15:50","格蘭貝爾飯店","SAPPORO HOTEL by GRANBELL，放行李、辦入住（約 16:30 出門）",W,"步行 8 分"],
+  ["","Ario 札幌","逛街（營業 10:00–21:00）",J,"札幌→苗穗"],
+  ["","貍小路商店街","先從苗穗搭回札幌，再往薄野\n🛍️ Natorigawa Shoe Store：買雪靴（10:00–19:00）\n⭐ 拉麵 Ramen Sapporo Akahoshi：網路推薦（11:00–22:00）\n⭐ 湯咖哩 GARAKU：必吃雞腿湯咖哩（11:30–15:00、17:00–20:30）\n⭐ Susukino Crepreriz：日式可麗餅（17:00–01:00）\n⭐ Espresso D\'Works：生吐司（08:00–24:00）",J,"苗穗→札幌→薄野",1],
+  ["","札幌電視塔","札幌地標",W,"步行 5–10 分",1],
+  ["晚上","回飯店休息","大通站搭車回札幌站，再回飯店",J,"大通→札幌"]
+ ]},
+ {t:"洞爺湖・登別一日", it:[
+  ["08:00","飯店大廳集合","搭遊覽車出發",W,"飯店大廳"],
+  ["","洞爺湖＋雪地摩托車或汽船","SAIRO 展望台（自費活動）",B,"遊覽車",1],
+  ["","Lake Hill Farm","吃冰",B,"遊覽車"],
+  ["","昭和新山熊牧場","",B,"遊覽車"],
+  ["","登別地獄谷","",B,"遊覽車",1],
+  ["","回飯店","",B,"遊覽車"],
+  ["18:10","札幌 Stellar Place","商場購物與餐廳分開：先逛街再吃飯（約 20:00）\n6F・7F Stellar Dining 餐廳街\n5F 生活雜貨與休閒\n4F 潮流服飾與鞋包\n3F 人氣女裝\n2F 時尚潮流與生活選品\n1F 服飾、美妝與迎賓大廳\nB1F 地下街連通層",W,"步行 12 分"],
+  ["","回飯店","",W,"步行 11 分"]
+ ]},
+ {t:"小樽浪漫散策", it:[
+  ["08:00","飯店大廳集合","出門",W,"飯店大廳"],
+  ["10:00","銀之鐘 1 號館","10 點開門",B,"巴士 41 分"],
+  ["","LeTAO 總店","巧克力蛋糕（9 點開門）",W,"步行"],
+  ["","小樽音樂盒堂本館","10 點開門",W,"步行 1 分",1],
+  ["","北菓樓","10 點開門",W,"步行 2 分"],
+  ["","六花亭 小樽運河店","10 點開門",W,"步行 1 分"],
+  ["","小樽運河","小樽經典風景",W,"步行 14 分",1],
+  ["","天狗山停車場","",B,"巴士 12 分"],
+  ["","天狗山觀景台","搭纜車上山",L,"纜車",1],
+  ["","回飯店","",B,"巴士 54 分"]
+ ]},
+ {t:"旭山動物園・美瑛富良野", it:[
+  ["08:00","飯店大廳集合","SAPPORO HOTEL by GRANBELL 出發",W,"飯店大廳"],
+  ["","旭山動物園","企鵝散步 11 點開始，要提前去卡位",B,"巴士 2 小時",1],
+  ["","白鬚瀑布","白鬚瀑布公共駐車場",B,"巴士 50 分"],
+  ["","青池","青池停車場",B,"巴士 5 分",1],
+  ["","森林精靈露台","富良野",B,"巴士 45 分"],
+  ["","回飯店","",B,"巴士 2 小時"]
+ ]},
+ {t:"場外市場・神宮・白色戀人・藻岩山", it:[
+  ["","飯店早餐","集合前先吃飽",W,"飯店"],
+  ["08:00","JR 札幌站東側售票處","出發",W,"集合"],
+  ["","大通站→二十四軒站","",J,"電車"],
+  ["","場外市場 根室杉山水產","營業 07:00–15:00",W,"步行 9 分"],
+  ["","二十四軒站→圓山公園站","從市場步行 9 分到二十四軒站",J,"電車"],
+  ["","北海道神宮","營業 06:00–17:00\n⭐⭐⭐ 梅酒（9 點開始賣）",W,"步行 12 分",1],
+  ["","圓山公園站→宮之澤站","從神宮步行 12 分回圓山公園站",J,"電車"],
+  ["","白色戀人公園","營業 10:00–18:00",W,"步行 9 分",1],
+  ["","宮之澤站→大通站","從公園步行 9 分到宮之澤站",J,"電車"],
+  ["","轉搭路面電車到「ロープウェイ入口」站","纜車入口站；或在圓山公園站下車轉搭巴士前往",J,"路面電車"],
+  ["","Lumiere et ombre","營業 11:00–18:00",W,"步行 18 分"],
+  ["","藻岩山纜車山麓站入口","纜車山麓駅入口，接駁約 2 分鐘",W,"步行 17 分",1],
+  ["","回札幌站","搭札幌市電（內環線／逆時針）；下車後步行到旁邊的地鐵大通站，改搭地下鐵南北線到札幌站",J,"電車"],
+  ["","札幌站周邊逛街","大丸札幌店（步行 2 分）：B1 食品區 CHEESE SNOW 餅乾（10:00–20:00），要排隊建議先去\n札幌 Stellar Place：① B1 四葉牛乳直營咖啡廳鬆餅（10:00–20:00，先抽整理券）② TRUFFLE mini 麵包 ③ SHIRO 香氛\nJR 札幌南口：札幌車站前六花亭（六花亭 札幌本店）\nAPIA",W,"步行"],
+  ["","想買伴手禮・逛超市・美食街","東急百貨（步行 6 分）\n大丸百貨地下街（2 分）",W,"步行"],
+  ["","回飯店","SAPPORO HOTEL by GRANBELL",W,"步行 9 分"]
+ ]},
+ {t:"返家日", it:[
+  ["08:00","出門，前往 JR 札幌站","",W,"步行 9 分"],
+  ["","新千歲機場","找退稅機器、逛機場",J,"JR 40 分"],
+  ["12:00","領機票、過海關、托運行李","",F,"報到"],
+  ["14:40","搭乘 CI131 回台灣","18:15 抵達桃園",F,"飛機",1],
+  ["18:15","回到台灣，領行李，回家","歡迎回家",C,"抵達"]
+ ]}
+];
+var LISTS = {
+ todo:["雪地摩托車或汽船（自費）決定要玩哪一個","D2–D4 每天 8:00 飯店大廳集合","旭山企鵝散步 11 點，提前去卡位","北海道神宮買梅酒（9 點開始賣）","新千歲機場找退稅機器、先逛機場"],
+ prep:["上 Visit Japan Web 填寫入境資料（過海關比較方便）","打電話給保險公司","護照效期（建議 6 個月以上）","購買網卡或 eSIM","兌換日圓現金","手機下載 Google Maps 離線地圖"],
+ pack:["護照（一定要帶到）","身分證","日幣、信用卡","行動電源（最多 2 顆，100Wh 以下，字要清楚）","充電線、充電頭","護手霜 1 條","護唇膏 1 條","保濕面霜 1 條","個人藥（會暈車建議帶暈車藥）","太陽眼鏡 1 副（雪會反光）","保溫瓶 1 個（想喝熱水比較方便）","衣服多帶一件（洋蔥式穿法）","褲子多帶一件","襪子多帶一雙","鞋子：盡量防水、防滑","帽子和手套：保暖、防水、可用手機、全包覆（不建議半指）"]
+};
+var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function dayDate(n){var d=new Date(DEPART+"T00:00:00");d.setDate(d.getDate()+n);return d}
+function fmt(d){return (d.getMonth()+1)+"/"+d.getDate()}
+function wk(d){return "日一二三四五六".charAt(d.getDay())}
+
+// nav
+var NAV=[["home","首頁"],["flight","航班"],["days","行程"],["food","美食地點"],["todo","待辦"],["hotel","住宿"],["prep","出發前"],["pack","行李"]];
+$("nav").innerHTML=NAV.map(function(n){return '<button data-t="'+n[0]+'">'+n[1]+'</button>'}).join("");
+$("nav").addEventListener("click",function(e){var t=e.target.getAttribute&&e.target.getAttribute("data-t");if(t)$(t).scrollIntoView({behavior:reduced?"auto":"smooth"})});
+
+// dates & countdown
+var d0=dayDate(0),d5=dayDate(5);
+$("range").textContent=fmt(d0)+"（"+wk(d0)+"）– "+fmt(d5)+"（"+wk(d5)+"）";
+$("fd1").textContent=fmt(d0);$("fd2").textContent=fmt(d5);
+function tick(){
+  var t=new Date(DEPART+"T03:00:00")-new Date();
+  if(t<=0){$("cd").innerHTML="";$("cdnote").textContent=new Date()<dayDate(6)?"旅行進行中，玩得開心！":"旅程結束，歡迎回家！";return}
+  var d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5),m=Math.floor(t%36e5/6e4);
+  $("cd").innerHTML='<div><b>'+d+'</b><small>天</small></div><div><b>'+h+'</b><small>小時</small></div><div><b>'+m+'</b><small>分鐘</small></div>';
+  $("cdnote").textContent="距離出發還有（出發日 "+fmt(d0)+"）";
+}
+tick();setInterval(tick,30000);
+
+// days
+var cur=0;
+function renderTabs(){
+  $("tabs").innerHTML=DAYS.map(function(_,i){var d=dayDate(i);return '<button role="tab" aria-selected="'+(i===cur)+'" data-i="'+i+'">D'+(i+1)+'<small>'+fmt(d)+'（'+wk(d)+'）</small></button>'}).join("");
+}
+function renderDay(anim){
+  var D=DAYS[cur],d=dayDate(cur);
+  $("dayh").textContent="D"+(cur+1)+" "+fmt(d)+"（"+wk(d)+"）"+D.t;
+  $("tl").className="tl";
+  $("tl").innerHTML=D.it.map(function(x,i){
+    return '<li class="it'+(x[5]?" must":"")+'" style="--i:'+i+'"><div class="card">'+
+      (x[0]?'<div class="tm">'+esc(x[0])+'</div>':'')+
+      '<h4>'+esc(x[1])+(x[5]?'<span class="must-b">必去</span>':'')+'</h4>'+
+      (x[2]?'<p>'+esc(x[2])+'</p>':'')+
+      '<span class="tag t-'+x[3]+'">'+esc(x[4])+'</span></div></li>';
+  }).join("");
+  if(anim&&!reduced){void $("tl").offsetWidth;$("tl").className="tl pop"}
+}
+$("tabs").addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;
+  cur=+b.getAttribute("data-i");renderTabs();renderDay(true);
+  var s=$("tabs").children[cur];if(s&&s.scrollIntoView)s.scrollIntoView({inline:"center",block:"nearest",behavior:reduced?"auto":"smooth"});
+});
+renderTabs();renderDay(false);
+
+// food & places
+var PL=[
+ ["f","Ramen Sapporo Akahoshi","D1","拉麵，網路上滿推薦；11:00–22:00","Ramen Sapporo Akahoshi Sapporo"],
+ ["f","Soup Curry GARAKU 本店","D1","必吃：雞腿湯咖哩；11:30–15:00、17:00–20:30","Soup Curry GARAKU Sapporo Main Restaurant",1],
+ ["s","貍小路商店街","D1","","貍小路商店街 Sapporo"],
+ ["s","大通公園","D1","","大通公園 Sapporo"],
+ ["s","札幌電視塔","D1","","札幌電視塔",1],
+ ["p","Natorigawa Shoe Store","D1","買雪靴；10:00–19:00","Natorigawa Shoe Store Sapporo"],
+ ["p","Ario 札幌","D1","逛街；10:00–21:00","Ario Sapporo"],
+ ["f","Susukino Crepreriz","D1","日式可麗餅；17:00–01:00","Susukino Crepreriz Sapporo"],
+ ["f","Espresso D'Works","D1","生吐司；08:00–24:00","Espresso D'Works Sapporo"],
+ ["s","洞爺湖 SAIRO 展望台","D2","雪地摩托車或汽船（自費）","SAIRO展望台 Toyako",1],
+ ["s","Lake Hill Farm","D2","吃冰","Lake Hill Farm"],
+ ["s","昭和新山熊牧場","D2","","昭和新山熊牧場"],
+ ["s","登別地獄谷","D2","","登別地獄谷",1],
+ ["p","札幌 Stellar Place","D2・D5","商場購物與餐廳分開，先逛再吃；6F・7F 是餐廳街。D5：B1 四葉牛乳直營咖啡廳鬆餅（10:00–20:00，先抽整理券）、TRUFFLE mini 麵包、SHIRO 香氛","札幌Stellar Place"],
+ ["s","銀之鐘 1 號館","D3","10 點開門","銀之鐘 1號館 Otaru"],
+ ["f","LeTAO 總店","D3","巧克力蛋糕；9 點開門","LeTAO 總店 Otaru"],
+ ["p","小樽音樂盒堂本館","D3","10 點開門","小樽音樂盒堂本館",1],
+ ["f","北菓樓 小樽本店","D3","10 點開門","Kitakaro Otaru Main Shop"],
+ ["f","六花亭 小樽運河店","D3","10 點開門","六花亭 小樽運河店"],
+ ["s","小樽運河","D3","","小樽運河",1],
+ ["s","天狗山觀景台","D3","搭纜車上山","小樽天狗山",1],
+ ["s","旭山動物園","D4","企鵝散步 11 點開始，要提前去卡位","旭山動物園",1],
+ ["s","白鬚瀑布","D4","","白鬚瀑布公共駐車場 Biei"],
+ ["s","青池","D4","","青池停車場 Biei",1],
+ ["s","森林精靈露台","D4","","森林精靈露台 Furano"],
+ ["f","場外市場 根室杉山水產","D5","營業 07:00–15:00","根室杉山水產 UME堂 Sapporo"],
+ ["s","圓山公園","D5","","圓山公園 Sapporo"],
+ ["s","北海道神宮","D5","營業 06:00–17:00；梅酒 9 點開始賣","北海道神宮",1],
+ ["s","白色戀人公園","D5","營業 10:00–18:00","白色戀人公園",1],
+ ["f","Lumiere et ombre","D5","營業 11:00–18:00","Lumiere et ombre Sapporo"],
+ ["s","藻岩山纜車山麓站","D5","纜車山麓駅入口","藻岩山纜車山麓駅入口 札幌",1],
+ ["p","大丸札幌店","D5","B1 食品區 CHEESE SNOW 餅乾（10:00–20:00），要排隊建議先去；地下街可買伴手禮、逛超市、美食街","Daimaru Sapporo"],
+ ["f","札幌車站前六花亭","D5","JR 札幌南口，六花亭 札幌本店","六花亭 札幌本店"],
+ ["p","APIA","D5","美妝、服飾、動漫","APIA Sapporo"],
+ ["p","東急百貨店","D5","伴手禮、超市、美食街","東急百貨店 Sapporo"],
+ ["p","新千歲機場","D6","找退稅機器、逛機場","新千歲機場"]
+];
+var PT={f:["🍜","#F2A497"],s:["🏞️","#B9DAA5"],p:["🛍️","#F6D27A"]};
+var PF="all";
+function renderPl(){
+  var FL=[["all","全部"],["f","美食"],["s","景點"],["p","購物"]];
+  $("fc").innerHTML=FL.map(function(f){return '<button data-f="'+f[0]+'" aria-pressed="'+(PF===f[0])+'">'+f[1]+'</button>'}).join("");
+  var n=0;
+  $("pl").innerHTML=PL.filter(function(p){return PF==="all"||p[0]===PF}).map(function(p){
+    var t=PT[p[0]];
+    return '<li style="--i:'+(n++)+'"><span class="ic" style="background:'+t[1]+'">'+t[0]+'</span><span class="tx"><b>'+esc(p[1])+(p[5]?'<span class="must-b">必去</span>':'')+'<span class="opt">'+p[2]+'</span></b>'+(p[3]?'<small>'+esc(p[3])+'</small>':'')+'</span><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p[4])+'" target="_blank" rel="noopener">地圖</a></li>';
+  }).join("");
+}
+$("fc").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;PF=b.getAttribute("data-f");renderPl()});
+renderPl();
+
+// checklists (saved on this device when possible)
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+Object.keys(LISTS).forEach(function(k){
+  var saved={};try{saved=JSON.parse(store("hk-"+k)||"{}")||{}}catch(e){}
+  $("l-"+k).innerHTML=LISTS[k].map(function(t,i){
+    return '<li><label><input type="checkbox" data-k="'+k+'" data-i="'+i+'"'+(saved[i]?" checked":"")+'><span class="bx"></span><span>'+esc(t)+'</span></label></li>';
+  }).join("");
+  $("l-"+k).addEventListener("change",function(e){
+    var o={};[].forEach.call($("l-"+k).querySelectorAll("input"),function(c,i){if(c.checked)o[i]=1});
+    store("hk-"+k,JSON.stringify(o));
+  });
+});
+</script>
+</body>
+</html>
